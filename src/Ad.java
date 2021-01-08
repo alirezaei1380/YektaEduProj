@@ -1,11 +1,18 @@
-public class Ad {
+public class Ad extends BaseAdvertising {
 
     private String id;
     private String title;
     private String imgUrl;
     private String link;
-    private int clicks;
-    private int views;
+
+    public Ad(int id, String title, String imgUrl, String link, Advertiser advertiser) {
+        super();
+        this.id = Integer.toString(id);
+        this.setTitle(title);
+        this.setImgUrl(imgUrl);
+        this.setLink(link);
+        this.setAdvertiser(advertiser);
+    }
 
     public void setTitle(String title) {
         this.title = title;
@@ -31,28 +38,11 @@ public class Ad {
         this.link = link;
     }
 
-    public int getClicks() {
-        return clicks;
-    }
-
-    public int getViews() {
-        return views;
-    }
-
     public void setAdvertiser(Advertiser advertiser) {
         advertiser.addAd(this);
     }
 
-    public void incClicks() {
-        clicks++;
-    }
-
-    public void incViews() {
-        views++;
-    }
-
     public String describeMe() {
-        return "this class stores the data we need and also communicates (sets and gets) them";
+        return "This class stores some data and communicates(sets and gets) them.";
     }
-
 }

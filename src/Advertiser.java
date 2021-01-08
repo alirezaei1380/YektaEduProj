@@ -1,17 +1,18 @@
 import java.util.ArrayList;
 
-public class Advertiser {
+public class Advertiser extends BaseAdvertising {
 
     private String id;
     private String name;
-    private int clicks;
-    private int views;
     private ArrayList<Ad> ads;
     private static ArrayList<Advertiser> allAdvertisers = new ArrayList<>();
 
-    public Advertiser() {
-        allAdvertisers.add(this);
+    public Advertiser(int id, String name) {
+        super();
+        this.id = Integer.toString(id);
+        this.setName(name);
         ads = new ArrayList<>();
+        allAdvertisers.add(this);
     }
 
     public String getName() {
@@ -23,7 +24,7 @@ public class Advertiser {
     }
 
     public int getClicks() {
-        int total = clicks;
+        int total = super.getClicks();
         for (Ad ad : ads) {
             total += ad.getClicks();
         }
@@ -31,19 +32,11 @@ public class Advertiser {
     }
 
     public int getViews() {
-        int total = views;
+        int total = super.getViews();
         for (Ad ad : ads) {
             total += ad.getViews();
         }
         return total;
-    }
-
-    public void incClicks() {
-        clicks++;
-    }
-
-    public void incViews() {
-        views++;
     }
 
     public static int getTotalClicks() {
@@ -54,16 +47,16 @@ public class Advertiser {
         return total;
     }
 
-    public String help() {
-        return "id is a unique code for each object\n" +
-                "name is obviously the name of the advertiser\n" +
-                "clicks shows how many clicks the advertisers has had\n" +
-                "and views shows how many views the advertiser has had";
+    public static String help() {
+        return "Id is a unique code for each object,\n" +
+                "Name is obviously the name of the advertiser,\n" +
+                "Clicks shows how many clicks the advertisers has had,\n" +
+                "And views shows how many views the advertiser has had.";
     }
 
     public String describeMe() {
-        return "this class stores the data we need and also communicates (sets and gets) them" +
-                " and also calculates the number of total clicks";
+        return "This class stores some data and communicates(sets and gets) them and also" +
+                "calculates the totalClicks of all advertisers.";
     }
 
     public void addAd(Ad ad) {
