@@ -3,9 +3,10 @@ public abstract class BaseAdvertising {
     private int clicks;
     private int views;
     private int id;
+    private static int nextId = 1;
 
-    public BaseAdvertising(int id) {
-        this.id = id;
+    public BaseAdvertising() {
+        this.id = nextId++;
         this.clicks = 0;
         this.views = 0;
     }

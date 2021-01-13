@@ -6,8 +6,8 @@ public class Advertiser extends BaseAdvertising {
     private ArrayList<Ad> ads;
     private static ArrayList<Advertiser> allAdvertisers = new ArrayList<>();
 
-    public Advertiser(int id, String name) {
-        super(id);
+    public Advertiser(String name) {
+        super();
         this.setName(name);
         ads = new ArrayList<>();
         allAdvertisers.add(this);
@@ -57,11 +57,15 @@ public class Advertiser extends BaseAdvertising {
         description.append("Name: ");
         description.append(getName());
         description.append(", ads titles:");
-        for (Ad ad : ads) {
-            description.append("\n");
-            description.append(ad.getTitle());
+        if (ads.isEmpty()) {
+            description.append(" there are no ads yet.");
+        } else {
+            for (Ad ad : ads) {
+                description.append("\n");
+                description.append(ad.getTitle());
+            }
+            description.append(".");
         }
-        description.append(".");
         return description.toString();
     }
 
