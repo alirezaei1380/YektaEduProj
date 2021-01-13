@@ -1,9 +1,11 @@
-public class BaseAdvertising {
+public abstract class BaseAdvertising {
 
     private int clicks;
     private int views;
+    private int id;
 
-    public BaseAdvertising() {
+    public BaseAdvertising(int id) {
+        this.id = id;
         this.clicks = 0;
         this.views = 0;
     }

@@ -1,13 +1,11 @@
 public class Ad extends BaseAdvertising {
 
-    private String id;
     private String title;
     private String imgUrl;
     private String link;
 
     public Ad(int id, String title, String imgUrl, String link, Advertiser advertiser) {
-        super();
-        this.id = Integer.toString(id);
+        super(id);
         this.setTitle(title);
         this.setImgUrl(imgUrl);
         this.setLink(link);

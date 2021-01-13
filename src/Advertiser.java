@@ -2,14 +2,12 @@ import java.util.ArrayList;
 
 public class Advertiser extends BaseAdvertising {
 
-    private String id;
     private String name;
     private ArrayList<Ad> ads;
     private static ArrayList<Advertiser> allAdvertisers = new ArrayList<>();
 
     public Advertiser(int id, String name) {
-        super();
-        this.id = Integer.toString(id);
+        super(id);
         this.setName(name);
         ads = new ArrayList<>();
         allAdvertisers.add(this);
