@@ -27,6 +27,6 @@ public abstract class BaseAdvertising {
     }
 
     public String describeMe() {
-        return "This class is designed to reduce duplicated code via inheritance.";
+        return "Id: " + id + ", views: " + getViews() + ", clicks: " + getClicks() + ".\n";
     }
 }

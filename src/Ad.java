@@ -41,6 +41,6 @@ public class Ad extends BaseAdvertising {
     }
 
     public String describeMe() {
-        return "This class stores some data and communicates(sets and gets) them.";
+        return super.describeMe() + "Title: " + getTitle() + ", imgUrl: " + getImgUrl() + ", link: " + getLink() + ".";
     }
 }

@@ -30,19 +30,19 @@ public class Advertiser extends BaseAdvertising {
     }
 
     public int getViews() {
-        int total = super.getViews();
+        int totalViews = super.getViews();
         for (Ad ad : ads) {
-            total += ad.getViews();
+            totalViews += ad.getViews();
         }
-        return total;
+        return totalViews;
     }
 
     public static int getTotalClicks() {
-        int total = 0;
+        int totalClicks = 0;
         for (Advertiser advertiser : allAdvertisers) {
-            total += advertiser.getClicks();
+            totalClicks += advertiser.getClicks();
         }
-        return total;
+        return totalClicks;
     }
 
     public static String help() {
@@ -53,8 +53,16 @@ public class Advertiser extends BaseAdvertising {
     }
 
     public String describeMe() {
-        return "This class stores some data and communicates(sets and gets) them and also" +
-                "calculates the totalClicks of all advertisers.";
+        StringBuilder description = new StringBuilder(super.describeMe());
+        description.append("Name: ");
+        description.append(getName());
+        description.append(", ads titles:");
+        for (Ad ad : ads) {
+            description.append("\n");
+            description.append(ad.getTitle());
+        }
+        description.append(".");
+        return description.toString();
     }
 
     public void addAd(Ad ad) {
